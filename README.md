@@ -36,9 +36,15 @@ Aplicación web mobile-first y Progressive Web App (PWA) de alta estética para 
   - Sábados: 09:00 hs a 15:00 hs
   - Domingos: Cerrado
 
----
+## 🚀 Despliegues en Vivo
 
-## 🚀 Despliegue en Vercel
+### 🟢 Vercel
+- **Sitio Web:** [https://epifania-belleza.vercel.app](https://epifania-belleza.vercel.app)
+- **Panel /admin:** [https://epifania-belleza.vercel.app/admin](https://epifania-belleza.vercel.app/admin)
 
-Configurado para despliegue estático con URLs limpias mediante `vercel.json`.
-El panel administrativo se encuentra disponible en `/admin`.
+### 🔥 Firebase Hosting
+- **Sitio Web Principal:** [https://epifania-belleza.web.app](https://epifania-belleza.web.app)
+- **Dominio Alternativo:** [https://epifania-belleza.firebaseapp.com](https://epifania-belleza.firebaseapp.com)
+- **Panel /admin:** [https://epifania-belleza.web.app/admin](https://epifania-belleza.web.app/admin)
+- **Consola del Proyecto:** [https://console.firebase.google.com/project/epifania-belleza/overview](https://console.firebase.google.com/project/epifania-belleza/overview)
+
