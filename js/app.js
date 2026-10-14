@@ -84,11 +84,13 @@ document.addEventListener("DOMContentLoaded", () => {
     storiesList.forEach((story, idx) => {
       const storyEl = document.createElement("div");
       storyEl.className = "story-item";
+      const safeTitulo = escapeHtml(story.titulo);
+      const safeTag = escapeHtml(story.tag || story.titulo);
       storyEl.innerHTML = `
         <div class="story-ring" id="storyRing-${idx}">
-          <img src="${story.imagen}" alt="${story.titulo}" class="story-avatar-img" loading="lazy">
+          <img src="${story.imagen}" alt="${safeTitulo}" class="story-avatar-img" loading="lazy">
         </div>
-        <span class="story-title">${story.tag || story.titulo}</span>
+        <span class="story-title">${safeTag}</span>
       `;
       storyEl.addEventListener("click", () => openStoryViewer(idx));
       storiesContainer.appendChild(storyEl);
@@ -134,15 +136,19 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       const waLink = `https://wa.me/${businessData.whatsapp_raw}?text=${waMessage}`;
 
+      const safeTitulo = escapeHtml(item.titulo);
+      const safeCatLabel = escapeHtml(item.categoria_label || "Manicura");
+      const safeDesc = escapeHtml(item.descripcion || "Diseño exclusivo y manicura profesional con productos de máxima calidad.");
+
       card.innerHTML = `
         <div class="work-image-wrapper" title="Ver foto ampliada">
-          <img src="${item.imagen || item.archivo_optimizado}" alt="${item.titulo}" class="work-image" loading="lazy">
-          <span class="work-category-badge">${item.categoria_label || "Manicura"}</span>
+          <img src="${item.imagen || item.archivo_optimizado}" alt="${safeTitulo}" class="work-image" loading="lazy">
+          <span class="work-category-badge">${safeCatLabel}</span>
           <button class="work-zoom-btn" aria-label="Ampliar foto">🔍</button>
         </div>
         <div class="work-details">
-          <h3 class="work-title">${item.titulo}</h3>
-          <p class="work-desc">${item.descripcion || "Diseño exclusivo y manicura profesional con productos de máxima calidad."}</p>
+          <h3 class="work-title">${safeTitulo}</h3>
+          <p class="work-desc">${safeDesc}</p>
           <div class="work-price-row">
             <span class="price-label">Precio</span>
             <span class="price-amount">${formattedPrice}</span>
@@ -426,6 +432,17 @@ document.addEventListener("DOMContentLoaded", () => {
         // En entornos sin HTTPS estricto o locales se ejecuta el fallback
       });
     });
+  }
+
+  // Función de sanitización anti-XSS
+  function escapeHtml(str) {
+    if (!str) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
   }
 
   // Inicializar ejecución

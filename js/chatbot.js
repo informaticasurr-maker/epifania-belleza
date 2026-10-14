@@ -450,25 +450,30 @@
 
       const card = document.createElement("div");
       card.className = "booking-confirmed-card";
+      const safeNombre = escapeHtml(data.cliente_nombre);
+      const safeServicio = escapeHtml(data.servicio_nombre);
+      const safePago = escapeHtml(data.tipo_pago);
+      const safeHorario = escapeHtml(data.horario_preferido);
+
       card.innerHTML = `
         <div class="booking-confirmed-header">
           <span>✅</span>
           <span>¡CITA AGENDADA!</span>
         </div>
         <p style="font-size: 0.85rem; color: #166534; line-height: 1.4;">
-          Muchas gracias <strong>${data.cliente_nombre}</strong>. Tu turno para <strong>${data.servicio_nombre}</strong> ha quedado registrado para nuestro estudio en <strong>Puerto Madryn, Chubut</strong>.
+          Muchas gracias <strong>${safeNombre}</strong>. Tu turno para <strong>${safeServicio}</strong> ha quedado registrado para nuestro estudio en <strong>Puerto Madryn, Chubut</strong>.
         </p>
 
         <div class="booking-duration-badge">
           <span>⏱️</span>
-          <span><strong>Tiempo estimado de la sesión de manos:</strong> ${data.duracion_estimada}</span>
+          <span><strong>Tiempo estimado de la sesión de manos:</strong> ${escapeHtml(data.duracion_estimada)}</span>
         </div>
 
         <div style="font-size: 0.8rem; color: #374151; background: #FFFFFF; padding: 0.65rem; border-radius: 8px; border: 1px solid #E5E7EB; line-height: 1.5;">
           <div>📍 <strong>Ubicación:</strong> Puerto Madryn, Chubut</div>
           <div>💰 <strong>Precio:</strong> $${data.precio.toLocaleString('es-AR')}</div>
-          <div>💳 <strong>Tipo de pago:</strong> ${data.tipo_pago}</div>
-          <div>🕒 <strong>Horario solicitado:</strong> ${data.horario_preferido}</div>
+          <div>💳 <strong>Tipo de pago:</strong> ${safePago}</div>
+          <div>🕒 <strong>Horario solicitado:</strong> ${safeHorario}</div>
         </div>
 
         <a href="${waLink}" target="_blank" rel="noopener" class="btn-wa-confirm-send btn-touch">
@@ -491,6 +496,17 @@
     });
   }
 
+  // Función de sanitización anti-XSS
+  function escapeHtml(str) {
+    if (!str) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
   // Utilitarios de Mensajería Visual
   function showBotMessage(htmlContent, callback) {
     const area = document.getElementById("chatMessagesArea");
@@ -509,9 +525,10 @@
     const area = document.getElementById("chatMessagesArea");
     const msg = document.createElement("div");
     msg.className = "chat-message user";
-    msg.innerHTML = `
-      <div class="chat-bubble">${text}</div>
-    `;
+    const bubble = document.createElement("div");
+    bubble.className = "chat-bubble";
+    bubble.textContent = text;
+    msg.appendChild(bubble);
     area.appendChild(msg);
     scrollToBottom();
   }

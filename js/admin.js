@@ -187,15 +187,19 @@ document.addEventListener("DOMContentLoaded", () => {
       
       const priceFormatted = EpifaniaDB.formatPrice(item.precio);
 
+      const safeTitulo = escapeHtml(item.titulo);
+      const safeCatLabel = escapeHtml(item.categoria_label);
+      const safeDesc = escapeHtml(item.descripcion || "Sin descripción.");
+
       card.innerHTML = `
         <div class="admin-item-media">
-          <img src="${item.imagen || item.archivo_optimizado}" alt="${item.titulo}" loading="lazy">
-          <span class="work-category-badge" style="top: 8px; left: 8px;">${item.categoria_label}</span>
+          <img src="${item.imagen || item.archivo_optimizado}" alt="${safeTitulo}" loading="lazy">
+          <span class="work-category-badge" style="top: 8px; left: 8px;">${safeCatLabel}</span>
         </div>
         <div class="admin-item-body">
-          <h4 class="admin-item-title">${item.titulo}</h4>
+          <h4 class="admin-item-title">${safeTitulo}</h4>
           <p style="font-size: 0.8rem; color: var(--color-text-muted); line-height: 1.35; flex-grow: 1;">
-            ${item.descripcion || "Sin descripción."}
+            ${safeDesc}
           </p>
           <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 0.25rem;">
             <span style="font-size: 0.75rem; color: var(--color-text-light);">Precio:</span>
@@ -372,14 +376,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const card = document.createElement("div");
       card.className = "admin-story-card";
 
+      const safeTitulo = escapeHtml(story.titulo);
+      const safeTag = escapeHtml(story.tag || "Historia");
+      const safeDesc = escapeHtml(story.descripcion || "");
+
       card.innerHTML = `
         <div class="admin-story-thumb">
-          <img src="${story.imagen}" alt="${story.titulo}">
-          <span class="work-category-badge" style="top: 8px; left: 8px;">${story.tag || "Historia"}</span>
+          <img src="${story.imagen}" alt="${safeTitulo}">
+          <span class="work-category-badge" style="top: 8px; left: 8px;">${safeTag}</span>
         </div>
         <div style="padding: 0.85rem; display: flex; flex-direction: column; gap: 0.4rem;">
-          <h4 style="font-size: 0.95rem; font-weight: 700;">${story.titulo}</h4>
-          <p style="font-size: 0.8rem; color: var(--color-text-muted); line-height: 1.3;">${story.descripcion || ""}</p>
+          <h4 style="font-size: 0.95rem; font-weight: 700;">${safeTitulo}</h4>
+          <p style="font-size: 0.8rem; color: var(--color-text-muted); line-height: 1.3;">${safeDesc}</p>
           <div style="margin-top: 0.5rem; display: flex; gap: 0.4rem;">
             <button class="btn-item-action btn-item-delete" data-story-idx="${idx}" style="padding: 0.45rem;">
               <span>🗑️ Eliminar</span>
@@ -613,10 +621,17 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       const waUrl = `https://wa.me/${waNumber}?text=${waReplyText}`;
 
+      const safeCliente = escapeHtml(apt.cliente_nombre);
+      const safeServicio = escapeHtml(apt.servicio_nombre);
+      const safeDuracion = escapeHtml(apt.duracion_estimada || '60 min');
+      const safeHorario = escapeHtml(apt.horario_preferido || 'A coordinar');
+      const safePago = escapeHtml(apt.tipo_pago || 'Efectivo');
+      const safeTelefono = escapeHtml(apt.cliente_telefono || '-');
+
       card.innerHTML = `
         <div class="appointment-header-row">
           <div class="appointment-client-name">
-            <span>👤 ${apt.cliente_nombre}</span>
+            <span>👤 ${safeCliente}</span>
           </div>
           <div style="display: flex; align-items: center; gap: 0.5rem;">
             <span style="font-size: 0.75rem; color: var(--color-text-muted);">🕒 ${dateStr}</span>
@@ -629,23 +644,23 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="appointment-details-grid">
           <div class="appointment-detail-item">
             <span class="detail-label">💅 Servicio Solicitado</span>
-            <span class="detail-value">${apt.servicio_nombre} ($${Number(apt.precio || 0).toLocaleString("es-AR")})</span>
+            <span class="detail-value">${safeServicio} ($${Number(apt.precio || 0).toLocaleString("es-AR")})</span>
           </div>
           <div class="appointment-detail-item">
             <span class="detail-label">⏱️ Tiempo Estimado de Sesión</span>
-            <span class="detail-value">${apt.duracion_estimada || '60 min'}</span>
+            <span class="detail-value">${safeDuracion}</span>
           </div>
           <div class="appointment-detail-item">
             <span class="detail-label">🕒 Horario / Fecha Deseada</span>
-            <span class="detail-value">${apt.horario_preferido || 'A coordinar'}</span>
+            <span class="detail-value">${safeHorario}</span>
           </div>
           <div class="appointment-detail-item">
             <span class="detail-label">💳 Tipo de Pago</span>
-            <span class="detail-value">${apt.tipo_pago || 'Efectivo'}</span>
+            <span class="detail-value">${safePago}</span>
           </div>
           <div class="appointment-detail-item">
             <span class="detail-label">📱 Teléfono Contacto</span>
-            <span class="detail-value">${apt.cliente_telefono || '-'}</span>
+            <span class="detail-value">${safeTelefono}</span>
           </div>
           <div class="appointment-detail-item">
             <span class="detail-label">📍 Ubicación del Estudio</span>
@@ -699,6 +714,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     }
+  }
+
+  // Función de sanitización anti-XSS
+  function escapeHtml(str) {
+    if (!str) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
   }
 
   // Comprobar autenticación al arrancar
