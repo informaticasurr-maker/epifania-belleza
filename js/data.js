@@ -16,7 +16,7 @@ const DEFAULT_BUSINESS = {
   schedule_week: "Lunes a Viernes de 9:00 hs a 20:00 hs",
   schedule_sat: "Sábados de 9:00 hs a 15:00 hs",
   schedule_sun: "Domingos cerrado",
-  admin_pin: "1234",
+  admin_pin: "141026",
   logo: "assets/img/logo.png"
 };
 
@@ -346,7 +346,11 @@ const EpifaniaDB = {
   },
 
   getAdminPin() {
-    return localStorage.getItem(STORAGE_KEYS.PIN) || DEFAULT_BUSINESS.admin_pin;
+    const savedPin = localStorage.getItem(STORAGE_KEYS.PIN);
+    if (!savedPin || savedPin === "1234") {
+      return DEFAULT_BUSINESS.admin_pin;
+    }
+    return savedPin;
   },
 
   setAdminPin(pin) {

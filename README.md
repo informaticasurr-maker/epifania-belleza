@@ -18,7 +18,7 @@ Aplicación web mobile-first y Progressive Web App (PWA) de alta estética para 
   - **2. Consultar disponibilidad:** Horarios de atención y turnos semanales en Puerto Madryn.
   - **3. Hacer una reserva:** Formulario integrado (Nombre, Teléfono, Servicio, Medio de Pago, Horario) con confirmación en tiempo real y enlace directo a WhatsApp.
 - **🔒 Panel de Administración Oculto (`/admin`):**
-  - Protegido por PIN de seguridad (`1234`).
+  - Protegido por PIN de seguridad (`141026`).
   - Gestión completa de catálogo (editar precios, nombres, descripciones y fotos).
   - Publicación y edición de Historias destacadas.
   - **Gestión de Citas Agendadas:** Registro de turnos solicitados desde el chatbot con botón para responder a la clienta por WhatsApp.

@@ -70,7 +70,7 @@ Para garantizar máxima velocidad, cero costo de mantenimiento de servidores y p
 ## 3. 🛡️ Especificación del Panel de Administración (`/admin`)
 
 - **Ruta de Acceso:** Oculto para clientas; ubicado en `/admin` (`admin/index.html` o ruta `/admin`), accesible mediante URL directa, hash `index.html#admin` o toque secreto en el pie de página.
-- **Control de Seguridad:** Validación por código PIN (PIN inicial por defecto: `1234`), editable desde el panel.
+- **Control de Seguridad:** Validación por código PIN (PIN inicial por defecto: `141026`), editable desde el panel.
 - **Módulos del Panel:**
   1. **Gestión de Historias:**
      - Subida de nueva imagen (arrastrar archivo o seleccionar de la galería).

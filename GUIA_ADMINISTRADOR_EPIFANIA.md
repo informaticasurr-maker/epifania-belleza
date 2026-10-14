@@ -21,7 +21,7 @@ Para proteger la privacidad de tu negocio, **el panel de administración está c
 4. **Atajo de Teclado en Computadora:** Presionando `Ctrl + Shift + A` (o `Alt + A`).
 
 > [!IMPORTANT]
-> **PIN de Acceso Inicial:** `1234`  
+> **PIN de Acceso Inicial:** `141026`  
 > Podés cambiar este PIN en cualquier momento desde la pestaña **"⚙️ Negocio & Respaldo"**.
 
 ---

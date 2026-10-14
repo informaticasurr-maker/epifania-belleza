@@ -20,7 +20,7 @@
   "configuracion": {
     "moneda": "ARS",
     "simbolo_moneda": "$",
-    "admin_pin_default": "1234",
+    "admin_pin_default": "141026",
     "categorias": [
       { "id": "todas", "nombre": "Todos los Trabajos", "icono": "✨" },
       { "id": "semipermanente", "nombre": "Semipermanente", "icono": "💅" },
