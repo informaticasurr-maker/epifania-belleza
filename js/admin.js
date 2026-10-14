@@ -102,9 +102,15 @@ document.addEventListener("DOMContentLoaded", () => {
   pinForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const enteredPin = adminPinInput.value.trim();
-    const currentPin = EpifaniaDB.getAdminPin();
+    const currentPin = (typeof EpifaniaDB !== "undefined" && EpifaniaDB.getAdminPin) ? EpifaniaDB.getAdminPin() : "141026";
 
-    if (enteredPin === currentPin) {
+    // 141026 es el PIN oficial fijo universal. 1234 queda terminantemente revocado.
+    const isValid = (enteredPin === "141026") || (enteredPin === currentPin && enteredPin !== "1234");
+
+    if (isValid) {
+      if (typeof EpifaniaDB !== "undefined" && EpifaniaDB.setAdminPin) {
+        EpifaniaDB.setAdminPin("141026");
+      }
       sessionStorage.setItem(AUTH_SESSION_KEY, "true");
       pinErrorMsg.style.display = "none";
       checkAuth();

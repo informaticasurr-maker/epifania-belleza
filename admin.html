@@ -357,8 +357,24 @@
     </div>
   </div>
 
-  <!-- Scripts -->
-  <script src="js/data.js"></script>
-  <script src="js/admin.js"></script>
+  <!-- Scripts con Cache-Buster contra caché del navegador/Service Worker -->
+  <script>
+    // Forzar actualización inmediata del Service Worker para servir scripts frescos
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for (var reg of registrations) {
+          reg.update();
+        }
+      });
+    }
+    // Asegurar que cualquier residuo de 1234 en localStorage sea purgado
+    try {
+      if (localStorage.getItem('EPIFANIA_ADMIN_PIN_V1') === '1234') {
+        localStorage.setItem('EPIFANIA_ADMIN_PIN_V1', '141026');
+      }
+    } catch (e) {}
+  </script>
+  <script src="js/data.js?v=141026_fix"></script>
+  <script src="js/admin.js?v=141026_fix"></script>
 </body>
 </html>

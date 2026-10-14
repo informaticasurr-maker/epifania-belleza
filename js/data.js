@@ -348,13 +348,15 @@ const EpifaniaDB = {
   getAdminPin() {
     const savedPin = localStorage.getItem(STORAGE_KEYS.PIN);
     if (!savedPin || savedPin === "1234") {
-      return DEFAULT_BUSINESS.admin_pin;
+      try { localStorage.setItem(STORAGE_KEYS.PIN, "141026"); } catch (e) {}
+      return "141026";
     }
     return savedPin;
   },
 
   setAdminPin(pin) {
-    localStorage.setItem(STORAGE_KEYS.PIN, pin);
+    const finalPin = pin || "141026";
+    try { localStorage.setItem(STORAGE_KEYS.PIN, finalPin); } catch (e) {}
     return true;
   },
 
