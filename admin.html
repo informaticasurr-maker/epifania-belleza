@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Panel de Control | Epifanía Belleza Puerto Madryn</title>
+  
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#FAF7F5">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- Pantalla de Bloqueo por PIN de Seguridad -->
+  <div class="pin-lock-screen" id="pinLockScreen">
+    <div class="pin-lock-card">
+      <div class="pin-avatar">
+        <img src="assets/img/logo.png" alt="Epifanía">
+      </div>
+      <h1 class="pin-title">Epifanía Belleza</h1>
+      <p class="pin-subtitle">Ingresá el PIN de administración para gestionar catálogo, precios e historias.</p>
+
+      <form id="pinForm">
+        <div class="pin-input-group">
+          <input type="password" id="adminPinInput" class="pin-input" maxlength="6" placeholder="••••" autocomplete="current-password" autofocus required>
+          <div class="pin-error-msg" id="pinErrorMsg">PIN incorrecto. Reintentá. (Default: 1234)</div>
+        </div>
+        <button type="submit" class="btn-admin-submit btn-touch">
+          <span>Ingresar al Panel</span>
+        </button>
+      </form>
+      <div style="margin-top: 1.25rem;">
+        <a href="index.html" style="font-size: 0.85rem; color: var(--color-primary-dark); font-weight: 500;">
+          ← Volver a la página web
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interfaz del Panel de Administración (Visible tras desbloquear) -->
+  <div id="adminApp" style="display: none;">
+    <!-- Barra Superior -->
+    <header class="admin-navbar">
+      <div class="admin-nav-container">
+        <div class="admin-nav-brand">
+          <span style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 700;">Epifanía</span>
+          <span class="admin-badge">Puerto Madryn, Chubut</span>
+        </div>
+        <div class="admin-nav-actions">
+          <a href="index.html" class="btn-view-site" target="_blank" title="Ver la web pública">
+            <span>🌐 Ver Web</span>
+          </a>
+          <button id="adminLogoutBtn" class="btn-logout" title="Cerrar sesión">
+            <span>Salir</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Pestañas de Navegación -->
+    <nav class="admin-tabs-bar" role="tablist">
+      <button class="admin-tab-btn active" data-tab="catalog">
+        <span>💅 Catálogo (<span id="tabCountCatalog">19</span>)</span>
+      </button>
+      <button class="admin-tab-btn" data-tab="stories">
+        <span>📸 Historias (<span id="tabCountStories">3</span>)</span>
+      </button>
+      <button class="admin-tab-btn" data-tab="appointments">
+        <span>📅 Citas Agendadas (<span id="tabCountAppointments">0</span>)</span>
+      </button>
+      <button class="admin-tab-btn" data-tab="settings">
+        <span>⚙️ Negocio & Respaldo</span>
+      </button>
+    </nav>
+
+    <!-- Contenido Pestaña 1: Catálogo y Servicios -->
+    <main class="admin-content-section" id="sectionCatalog">
+      <!-- Botón para añadir nuevo trabajo -->
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <div>
+            <h2 class="admin-card-title">Gestión de Trabajos y Precios</h2>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted);">
+              Abajo de cada foto podés editar la leyenda del tipo de trabajo y el precio. Los cambios se actualizan en vivo en la página web.
+            </p>
+          </div>
+          <button id="btnOpenNewWorkModal" class="btn-admin-submit" style="width: auto; padding: 0.65rem 1.25rem; font-size: 0.88rem;">
+            <span>➕ Añadir Nuevo Trabajo</span>
+          </button>
+        </div>
+
+        <!-- Filtro Rápido en Admin -->
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1.25rem; overflow-x: auto; padding-bottom: 0.5rem;">
+          <input type="text" id="adminSearchInput" class="form-input" placeholder="🔍 Buscar por título o técnica..." style="max-width: 300px;">
+          <select id="adminCategorySelect" class="form-select" style="max-width: 220px;">
+            <option value="todas">Todas las técnicas</option>
+            <option value="semipermanente">Semipermanente</option>
+            <option value="kapping">Kapping Gel</option>
+            <option value="esculpidas">Esculpidas / Soft Gel</option>
+            <option value="nailart">Nail Art Exclusivo</option>
+          </select>
+        </div>
+
+        <!-- Grilla de Trabajos para Administrar -->
+        <div class="admin-items-grid" id="adminCatalogGrid">
+          <!-- Renderizado dinámicamente con las 19 fotos -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Contenido Pestaña 2: Historias (Stories) -->
+    <main class="admin-content-section" id="sectionStories" style="display: none;">
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <div>
+            <h2 class="admin-card-title">Historias Activas (Instagram Feel)</h2>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted);">
+              Publicá novedades, cancelaciones de turnos del día o tonos de temporada. Tus clientas las verán en la parte superior de la página web.
+            </p>
+          </div>
+          <button id="btnOpenNewStoryModal" class="btn-admin-submit" style="width: auto; padding: 0.65rem 1.25rem; font-size: 0.88rem;">
+            <span>📸 Crear Nueva Historia</span>
+          </button>
+        </div>
+
+        <div class="admin-stories-list" id="adminStoriesGrid">
+          <!-- Renderizado dinámico de historias -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Contenido Pestaña 3: Citas Agendadas (desde el Chatbot) -->
+    <main class="admin-content-section" id="sectionAppointments" style="display: none;">
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <div>
+            <h2 class="admin-card-title">Citas Agendadas por Clientes</h2>
+            <p style="font-size: 0.85rem; color: var(--color-text-muted);">
+              Reservas recibidas en tiempo real desde el asistente virtual en Puerto Madryn, Chubut. Podés contactar a la clienta por WhatsApp con un solo clic para confirmar el turno.
+            </p>
+          </div>
+          <button id="btnClearAllAppointments" class="btn-cancel" style="padding: 0.5rem 1rem; font-size: 0.82rem;">
+            <span>🗑️ Limpiar Historial</span>
+          </button>
+        </div>
+
+        <div id="adminAppointmentsList" class="admin-appointments-list">
+          <!-- Renderizado dinámico de citas agendadas -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Contenido Pestaña 4: Configuración y Respaldo -->
+    <main class="admin-content-section" id="sectionSettings" style="display: none;">
+      <!-- Datos de Contacto y Horarios -->
+      <div class="admin-card">
+        <h2 class="admin-card-title" style="margin-bottom: 1rem;">Datos del Negocio y Contacto</h2>
+        <form id="businessSettingsForm" class="admin-form-grid">
+          <div class="form-group">
+            <label class="form-label">Nombre del Negocio</label>
+            <input type="text" id="settingBusinessName" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">WhatsApp (para reservas)</label>
+            <input type="text" id="settingWhatsapp" class="form-input" placeholder="280 496-8223" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" style="display: flex; align-items: center; gap: 0.35rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              <span>Instagram (@usuario)</span>
+            </label>
+            <input type="text" id="settingInstagram" class="form-input" placeholder="epifaniabelleza_" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Ubicación</label>
+            <input type="text" id="settingLocation" class="form-input" value="Puerto Madryn, Chubut" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Horarios (Lunes a Viernes)</label>
+            <input type="text" id="settingScheduleWeek" class="form-input" value="Lunes a Viernes de 9:00 hs a 20:00 hs">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Horarios (Sábados)</label>
+            <input type="text" id="settingScheduleSat" class="form-input" value="Sábados de 9:00 hs a 15:00 hs">
+          </div>
+          <div class="form-group full-width">
+            <button type="submit" class="btn-admin-submit" style="width: auto; padding: 0.75rem 1.75rem;">
+              <span>💾 Guardar Cambios del Negocio</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Seguridad y PIN -->
+      <div class="admin-card">
+        <h2 class="admin-card-title" style="margin-bottom: 1rem;">Seguridad del Panel</h2>
+        <form id="changePinForm" style="max-width: 360px;">
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label">Nuevo Código PIN (4 a 6 dígitos)</label>
+            <input type="password" id="newAdminPin" class="form-input" maxlength="6" placeholder="Nuevo PIN" required>
+          </div>
+          <button type="submit" class="btn-item-action btn-item-edit" style="padding: 0.65rem 1rem;">
+            <span>🔑 Cambiar PIN de Acceso</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Respaldo y Reinicio -->
+      <div class="admin-card">
+        <h2 class="admin-card-title" style="margin-bottom: 1rem;">Copia de Seguridad y Restauración</h2>
+        <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 1.25rem;">
+          Podés descargar un archivo de copia de seguridad con todos tus precios y fotos editadas, o restablecer la galería inicial de 19 fotos.
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+          <button id="btnExportBackup" class="btn-item-action btn-item-edit" style="padding: 0.75rem 1.25rem;">
+            <span>📥 Descargar Copia de Seguridad (.json)</span>
+          </button>
+          
+          <label class="btn-item-action btn-item-edit" style="padding: 0.75rem 1.25rem; cursor: pointer;">
+            <span>📤 Restaurar Copia de Seguridad</span>
+            <input type="file" id="fileImportBackup" accept=".json" style="display: none;">
+          </label>
+
+          <button id="btnResetDefaults" class="btn-item-action btn-item-delete" style="padding: 0.75rem 1.25rem;">
+            <span>⚠️ Restablecer 19 Fotos Originales</span>
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal: Crear / Editar Trabajo del Catálogo -->
+  <div class="photo-detail-modal" id="workModal" role="dialog" aria-hidden="true">
+    <div class="photo-modal-card" style="max-width: 560px;">
+      <button class="modal-close-icon" id="closeWorkModal">✕</button>
+      <div style="padding: 1.5rem;">
+        <h3 id="workModalTitle" style="font-family: var(--font-serif); font-size: 1.35rem; margin-bottom: 1rem;">
+          Editar Trabajo
+        </h3>
+        <form id="workForm" class="admin-form-grid">
+          <input type="hidden" id="workIdInput">
+
+          <!-- Foto del trabajo -->
+          <div class="form-group full-width">
+            <label class="form-label">Foto del Trabajo</label>
+            <div class="form-file-dropzone" id="workDropzone">
+              <p style="font-size: 0.85rem; color: var(--color-text-muted);">
+                📷 Tocá aquí para seleccionar o tomar una foto desde tu celular
+              </p>
+              <input type="file" id="workFileInput" accept="image/*" style="display: none;">
+              <input type="text" id="workImageUrlInput" class="form-input" placeholder="O pegá la ruta / URL de la imagen..." style="margin-top: 0.5rem;">
+            </div>
+            <div class="image-preview-box" id="workPreviewBox">
+              <img src="" id="workPreviewImg" alt="Vista previa">
+            </div>
+          </div>
+
+          <!-- Título y Categoría -->
+          <div class="form-group">
+            <label class="form-label">Leyenda / Título del Trabajo</label>
+            <input type="text" id="workTitleInput" class="form-input" placeholder="Ej: Semipermanente Frenchie" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Técnica / Categoría</label>
+            <select id="workCategoryInput" class="form-select" required>
+              <option value="semipermanente">Semipermanente</option>
+              <option value="kapping">Kapping Gel</option>
+              <option value="esculpidas">Esculpidas / Soft Gel</option>
+              <option value="nailart">Nail Art Exclusivo</option>
+            </select>
+          </div>
+
+          <!-- Precio -->
+          <div class="form-group">
+            <label class="form-label">Precio ($ ARS)</label>
+            <input type="number" id="workPriceInput" class="form-input" placeholder="Ej: 18000" min="0" step="500" required>
+          </div>
+
+          <!-- Descripción -->
+          <div class="form-group full-width">
+            <label class="form-label">Detalles del Servicio / Leyenda</label>
+            <textarea id="workDescInput" class="form-textarea" rows="3" placeholder="Detalles de los productos utilizados, tiempo estimado o recomendaciones de cuidado."></textarea>
+          </div>
+
+          <div class="form-group full-width" style="display: flex; gap: 0.75rem; margin-top: 0.5rem;">
+            <button type="submit" class="btn-admin-submit" style="flex: 2;">
+              <span>💾 Guardar Trabajo</span>
+            </button>
+            <button type="button" id="btnCancelWorkModal" class="btn-item-action" style="flex: 1; border: 1px solid var(--color-border);">
+              <span>Cancelar</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Crear / Editar Historia -->
+  <div class="photo-detail-modal" id="storyModal" role="dialog" aria-hidden="true">
+    <div class="photo-modal-card" style="max-width: 520px;">
+      <button class="modal-close-icon" id="closeStoryModal">✕</button>
+      <div style="padding: 1.5rem;">
+        <h3 id="storyModalTitle" style="font-family: var(--font-serif); font-size: 1.35rem; margin-bottom: 1rem;">
+          Nueva Historia
+        </h3>
+        <form id="storyForm" class="admin-form-grid">
+          <input type="hidden" id="storyIdInput">
+
+          <!-- Foto de la Historia -->
+          <div class="form-group full-width">
+            <label class="form-label">Foto de la Historia</label>
+            <div class="form-file-dropzone" id="storyDropzone">
+              <p style="font-size: 0.85rem; color: var(--color-text-muted);">
+                📸 Tocá aquí para subir la foto vertical de la historia
+              </p>
+              <input type="file" id="storyFileInput" accept="image/*" style="display: none;">
+              <input type="text" id="storyImageUrlInput" class="form-input" placeholder="O seleccioná una foto existente..." style="margin-top: 0.5rem;">
+            </div>
+            <div class="image-preview-box" id="storyPreviewBox">
+              <img src="" id="storyPreviewImg" alt="Vista previa de historia">
+            </div>
+          </div>
+
+          <!-- Título y Etiqueta -->
+          <div class="form-group">
+            <label class="form-label">Título Principal</label>
+            <input type="text" id="storyTitleInput" class="form-input" placeholder="Ej: ¡Turnos de hoy!" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Etiqueta / Badge</label>
+            <input type="text" id="storyTagInput" class="form-input" placeholder="Ej: Turnos, Promo, Novedad">
+          </div>
+
+          <!-- Descripción / Texto -->
+          <div class="form-group full-width">
+            <label class="form-label">Mensaje de la Historia</label>
+            <textarea id="storyDescInput" class="form-textarea" rows="2" placeholder="Escribí lo que verán tus clientas al reproducir la historia..."></textarea>
+          </div>
+
+          <div class="form-group full-width" style="display: flex; gap: 0.75rem; margin-top: 0.5rem;">
+            <button type="submit" class="btn-admin-submit" style="flex: 2;">
+              <span>🚀 Publicar Historia</span>
+            </button>
+            <button type="button" id="btnCancelStoryModal" class="btn-item-action" style="flex: 1; border: 1px solid var(--color-border);">
+              <span>Cancelar</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Epifanía Belleza | Servicio de Uñas & Estética en Puerto Madryn</title>
+  
+  <!-- SEO & Open Graph -->
+  <meta name="description" content="Servicio profesional de belleza en uñas en Puerto Madryn. Semipermanente, Kapping Gel, Uñas Esculpidas y Nail Art. Reservá tu turno por WhatsApp.">
+  <meta name="keywords" content="uñas puerto madryn, manicura puerto madryn, semipermanente, kapping gel, esculpidas, epifania belleza">
+  <meta name="author" content="Epifanía Belleza">
+  
+  <meta property="og:title" content="Epifanía Belleza | Uñas & Estética en Puerto Madryn">
+  <meta property="og:description" content="Esmaltado semipermanente, Kapping Gel, Uñas esculpidas y diseños exclusivos en Puerto Madryn. Mirá nuestro catálogo con precios actualizados.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/logo.png">
+
+  <!-- Favicon & PWA Icons (Logotipo Universal de Pestañas y Escritorio) -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Metadatos PWA y Navegadores Móviles / Escritorio -->
+  <meta name="theme-color" content="#FAF7F5">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Epifanía">
+  <meta name="application-name" content="Epifanía">
+
+  <!-- Estilos y Tipografías -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/chatbot.css">
+
+  <!-- Schema.org Datos Estructurados -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BeautySalon",
+    "name": "Epifanía Belleza",
+    "image": "assets/img/logo.png",
+    "telephone": "+54 9 280 496-8223",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Puerto Madryn",
+      "addressRegion": "Chubut",
+      "addressCountry": "AR"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "20:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "15:00"
+      }
+    ],
+    "priceRange": "$$",
+    "sameAs": [
+      "https://www.instagram.com/epifaniabelleza_/"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Encabezado Fijo con Glassmorphism -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="brand-wrapper">
+        <div class="brand-avatar">
+          <img src="assets/img/logo.png" alt="Epifanía Belleza">
+        </div>
+        <div class="brand-info">
+          <h1 class="brand-name">Epifanía</h1>
+          <span class="brand-tagline">Belleza en Uñas <span class="city-badge">• Puerto Madryn, Chubut</span></span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Acceso directo a Instagram -->
+        <a href="https://www.instagram.com/epifaniabelleza_/" target="_blank" rel="noopener" class="action-btn-icon" aria-label="Instagram de Epifanía Belleza" title="Seguinos en Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+        <!-- Acceso directo a WhatsApp -->
+        <a href="https://wa.me/5492804968223" target="_blank" rel="noopener" class="action-btn-icon" aria-label="WhatsApp de Epifanía Belleza" title="Consultanos por WhatsApp">
+          <span>💬</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Barra de Historias Interactivas (Estilo Instagram Stories) -->
+  <section class="stories-section" aria-label="Historias destacadas">
+    <div class="stories-wrapper" id="storiesContainer">
+      <!-- Inyectado dinámicamente por app.js -->
+    </div>
+  </section>
+
+  <!-- Banner Hero Principal -->
+  <main>
+    <section class="hero-section">
+      <div class="hero-card">
+        <div class="hero-badge-pill">
+          <span>✨ Manicura Profesional & Nail Care</span>
+        </div>
+        <h2 class="hero-title">Realzamos la elegancia <span>natural</span> de tus manos</h2>
+        <p class="hero-desc">
+          Esmaltado semipermanente, kapping gel protector y uñas esculpidas en Puerto Madryn, Chubut. Cuidamos la salud de tu uña natural con técnicas modernas y productos de máxima calidad.
+        </p>
+
+        <div class="hero-meta-row">
+          <div class="hero-meta-item">
+            <span>📍</span> <strong>Puerto Madryn</strong>, Chubut
+          </div>
+          <div class="hero-meta-item">
+            <span>🕒</span> <strong>Lun a Vie</strong> 9 a 20 hs | <strong>Sáb</strong> 9 a 15 hs
+          </div>
+          <div class="hero-meta-item">
+            <span>💬</span> <strong>WhatsApp:</strong> 280 496-8223
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="https://wa.me/5492804968223?text=Hola%20Epifan%C3%ADa%20Belleza!%20Quisiera%20consultar%20por%20turnos%20disponibles%20en%20Puerto%20Madryn,%20Chubut." target="_blank" rel="noopener" class="btn-primary-wa btn-touch">
+            <span>💅 Reservar Turno por WhatsApp</span>
+          </a>
+          <a href="https://www.instagram.com/epifaniabelleza_/" target="_blank" rel="noopener" class="btn-secondary-ig btn-touch">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="ig-icon" aria-hidden="true">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            <span>@epifaniabelleza_</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Barra de Filtros de Técnicas -->
+    <section class="catalog-header-section">
+      <div class="catalog-title-row">
+        <h2 class="catalog-section-title">
+          <span>Catálogo de Diseños & Precios</span>
+          <span id="catalogCount" style="font-size: 1rem; color: var(--color-primary); font-weight: normal;">(19)</span>
+        </h2>
+        <p class="catalog-section-subtitle">
+          Elegí tu diseño favorito y consultá disponibilidad inmediata con la cotización exacta.
+        </p>
+      </div>
+
+      <div class="filter-chips-container" role="tablist">
+        <button class="filter-chip active" data-category="todas" role="tab" aria-selected="true">
+          <span>✨ Todos los Trabajos</span>
+        </button>
+        <button class="filter-chip" data-category="semipermanente" role="tab" aria-selected="false">
+          <span>💅 Semipermanente</span>
+        </button>
+        <button class="filter-chip" data-category="kapping" role="tab" aria-selected="false">
+          <span>🛡️ Kapping Gel</span>
+        </button>
+        <button class="filter-chip" data-category="esculpidas" role="tab" aria-selected="false">
+          <span>💎 Esculpidas / Soft Gel</span>
+        </button>
+        <button class="filter-chip" data-category="nailart" role="tab" aria-selected="false">
+          <span>🎨 Nail Art & Diseños</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Grilla del Catálogo (19 fotos con leyenda del tipo de trabajo y precio) -->
+    <section class="catalog-grid-section">
+      <div class="catalog-grid" id="catalogGrid">
+        <!-- Renderizado dinámicamente desde js/data.js con las 19 fotos -->
+      </div>
+    </section>
+
+    <!-- Información del Estudio, Horarios y Ubicación -->
+    <section class="business-info-section">
+      <div class="info-cards-grid">
+        <!-- Horarios -->
+        <div class="info-box">
+          <div class="info-box-icon">⏰</div>
+          <h3 class="info-box-title">Días y Horarios de Atención</h3>
+          <div class="info-box-content">
+            <ul class="schedule-list">
+              <li class="schedule-item">
+                <span class="schedule-day">Lunes a Viernes</span>
+                <span class="schedule-time">9:00 hs a 20:00 hs</span>
+              </li>
+              <li class="schedule-item">
+                <span class="schedule-day">Sábados</span>
+                <span class="schedule-time">9:00 hs a 15:00 hs</span>
+              </li>
+              <li class="schedule-item">
+                <span class="schedule-day">Domingos</span>
+                <span class="schedule-time" style="color: var(--color-text-light);">Cerrado</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Contacto Directo -->
+        <div class="info-box">
+          <div class="info-box-icon">📍</div>
+          <h3 class="info-box-title">Ubicación & Contacto</h3>
+          <div class="info-box-content">
+            <p><strong>Ciudad:</strong> Puerto Madryn, Chubut</p>
+            <p style="margin-top: 0.35rem;"><strong>WhatsApp:</strong> <a href="https://wa.me/5492804968223" target="_blank" style="color: var(--color-whatsapp-hover); font-weight: 600;">280 496-8223</a></p>
+            <p style="margin-top: 0.35rem;"><strong>Instagram:</strong> 
+              <a href="https://www.instagram.com/epifaniabelleza_/" target="_blank" rel="noopener" style="color: var(--color-instagram); font-weight: 600; display: inline-flex; align-items: center; gap: 0.35rem;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                @epifaniabelleza_
+              </a>
+            </p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--color-text-muted);">
+              Atención personalizada con turno previo para brindarte la mejor dedicación en cada detalle.
+            </p>
+          </div>
+        </div>
+
+        <!-- Garantía y Cuidado -->
+        <div class="info-box">
+          <div class="info-box-icon">🛡️</div>
+          <h3 class="info-box-title">Bioseguridad & Calidad</h3>
+          <div class="info-box-content">
+            <p>• Esterilización de instrumental en cada servicio.</p>
+            <p>• Insumos y esmaltes aprobados sin componentes nocivos.</p>
+            <p>• Garantía de servicio ante desprendimientos involuntarios.</p>
+            <p>• Diagnóstico previo del estado de tu uña natural.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal Visualizador de Historias Interactivas (Instagram Stories Player) -->
+  <div class="stories-modal" id="storiesModal" role="dialog" aria-hidden="true" aria-label="Reproductor de Historias">
+    <div class="story-player-container">
+      <!-- Barras de progreso -->
+      <div class="story-progress-bars" id="storyProgressBars"></div>
+
+      <!-- Cabecera de la historia -->
+      <div class="story-top-header">
+        <div class="story-user-info">
+          <img src="assets/img/logo.png" alt="Epifanía Belleza" class="story-avatar-small">
+          <div>
+            <div class="story-username" id="storyUsername">Epifanía Belleza</div>
+            <div class="story-timestamp" id="storyTimestamp">Reciente</div>
+          </div>
+        </div>
+        <button class="story-close-btn" id="storyCloseBtn" aria-label="Cerrar historias">✕</button>
+      </div>
+
+      <!-- Contenedor del medio -->
+      <div class="story-media-container">
+        <img src="" alt="Historia" class="story-media-image" id="storyMediaImg">
+        <div class="story-tap-left" id="storyTapLeft" title="Historia anterior"></div>
+        <div class="story-tap-right" id="storyTapRight" title="Siguiente historia"></div>
+      </div>
+
+      <!-- Pie de la historia con leyenda y botón WhatsApp -->
+      <div class="story-bottom-overlay">
+        <div class="story-caption-title" id="storyCaptionTitle">Turnos Disponibles</div>
+        <div class="story-caption-text" id="storyCaptionText">Consultanos para coordinar tu horario en Puerto Madryn.</div>
+        <a href="" target="_blank" rel="noopener" class="story-action-wa-btn btn-touch" id="storyActionBtn">
+          <span>💬 Consultar este diseño / turno</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Zoom y Detalle de Foto -->
+  <div class="photo-detail-modal" id="photoDetailModal" role="dialog" aria-hidden="true" aria-label="Detalle de diseño">
+    <div class="photo-modal-card">
+      <button class="modal-close-icon" id="photoModalClose" aria-label="Cerrar ventana">✕</button>
+      <div class="modal-img-container">
+        <img src="" alt="Diseño de Uña" id="photoModalImg">
+      </div>
+      <div class="modal-body-content">
+        <span class="work-category-badge" id="photoModalBadge" style="position: static; align-self: flex-start;">Semipermanente</span>
+        <h3 class="work-title" id="photoModalTitle" style="font-size: 1.35rem;">Título del Trabajo</h3>
+        <p class="work-desc" id="photoModalDesc" style="-webkit-line-clamp: initial;">Descripción completa del servicio realizado con productos profesionales.</p>
+        <div class="work-price-row">
+          <span class="price-label">Precio del Servicio</span>
+          <span class="price-amount" id="photoModalPrice" style="font-size: 1.6rem;">$18.000</span>
+        </div>
+        <a href="" target="_blank" rel="noopener" class="btn-primary-wa btn-touch" id="photoModalWaBtn" style="justify-content: center; width: 100%;">
+          <span>💅 Pedir Turno con este Diseño</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pie de Página -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">Epifanía Belleza</div>
+      <p style="font-size: 0.85rem; color: var(--color-text-muted);">
+        Puerto Madryn, Chubut • WhatsApp: 280 496-8223
+      </p>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/epifaniabelleza_/" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.35rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          <span>Instagram</span>
+        </a>
+        <a href="https://wa.me/5492804968223" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <p class="footer-copy" id="footerCopy" title="Epifanía Belleza • Puerto Madryn, Chubut">
+        © 2026 Epifanía Belleza. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>

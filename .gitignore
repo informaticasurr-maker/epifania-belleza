@@ -1,0 +1,6 @@
+# Dependencias y logs
+.agents/
+.vercel/
+*.log
+.DS_Store
+Thumbs.db

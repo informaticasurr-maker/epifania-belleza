@@ -1,0 +1,344 @@
+[
+  {
+    "id": "item-01",
+    "numero": 1,
+    "titulo": "Semipermanente #01",
+    "categoria": "semipermanente",
+    "categoria_label": "Semipermanente",
+    "descripcion": "Esmaltado semipermanente de larga duración con cutículas impecables.",
+    "precio": 18000,
+    "precio_formateado": "$18.000",
+    "archivo_original": "WhatsApp Image 2026-10-01 at 20.05.32.jpeg",
+    "archivo_optimizado": "assets/img/trabajo_01.jpg",
+    "dimensiones": {
+      "ancho": 720,
+      "alto": 1280
+    },
+    "aspect_ratio": 0.56,
+    "destacado": true
+  },
+  {
+    "id": "item-02",
+    "numero": 2,
+    "titulo": "Kapping Gel #02",
+    "categoria": "kapping",
+    "categoria_label": "Kapping Gel",
+    "descripcion": "Refuerzo de uña natural con Kapping Gel para máxima durabilidad y fuerza.",
+    "precio": 23000,
+    "precio_formateado": "$23.000",
+    "archivo_original": "WhatsApp Image 2026-10-01 at 20.12.20 (2).jpeg",
+    "archivo_optimizado": "assets/img/trabajo_02.jpg",
+    "dimensiones": {
+      "ancho": 720,
+      "alto": 1280
+    },
+    "aspect_ratio": 0.56,
+    "destacado": false
+  },
+  {
+    "id": "item-03",
+    "numero": 3,
+    "titulo": "Uñas Esculpidas #03",
+    "categoria": "esculpidas",
+    "categoria_label": "Uñas Esculpidas",
+    "descripcion": "Extensión esculpida profesional con acabado ultra natural y resistencia.",
+    "precio": 28000,
+    "precio_formateado": "$28.000",
+    "archivo_original": "WhatsApp Image 2026-10-01 at 20.12.20 (3).jpeg",
+    "archivo_optimizado": "assets/img/trabajo_03.jpg",
+    "dimensiones": {
+      "ancho": 720,
+      "alto": 1280
+    },
+    "aspect_ratio": 0.56,
+    "destacado": false
+  },
+  {
+    "id": "item-04",
+    "numero": 4,
+    "titulo": "Nail Art Exclusivo #04",
+    "categoria": "nailart",
+    "categoria_label": "Nail Art Exclusivo",
+    "descripcion": "Diseño artístico a mano alzada con detalles delicados y brillo superior.",
+    "precio": 25000,
+    "precio_formateado": "$25.000",
+    "archivo_original": "WhatsApp Image 2026-10-01 at 20.12.21.jpeg",
+    "archivo_optimizado": "assets/img/trabajo_04.jpg",
+    "dimensiones": {
+      "ancho": 720,
+      "alto": 1280
+    },
+    "aspect_ratio": 0.56,
+    "destacado": true
+  },
+  {
+    "id": "item-05",
+    "numero": 5,
+    "titulo": "Semipermanente #05",
+    "categoria": "semipermanente",
+    "categoria_label": "Semipermanente",
+    "descripcion": "Esmaltado semipermanente de larga duración con cutículas impecables.",
+    "precio": 18000,
+    "precio_formateado": "$18.000",
+    "archivo_original": "WhatsApp Image 2026-10-01 at 20.18.12.jpeg",
+    "archivo_optimizado": "assets/img/trabajo_05.jpg",
+    "dimensiones": {
+      "ancho": 780,
+      "alto": 1280
+    },
+    "aspect_ratio": 0.61,
+    "destacado": false
+  },
+  {
+    "id": "item-06",
+    "numero": 6,
+    "titulo": "Kapping Gel #06",
+    "categoria": "kapping",
+    "categoria_label": "Kapping Gel",
+    "descripcion": "Refuerzo de uña natural con Kapping Gel para máxima durabilidad y fuerza.",
+    "precio": 23000,
+    "precio_formateado": "$23.000",
+    "archivo_original": "d.jpeg",
+    "archivo_optimizado": "assets/img/trabajo_06.jpg",
+    "dimensiones": {
+      "ancho": 720,
+      "alto": 1280
+    },
+    "aspect_ratio": 0.56,
+    "destacado": false
+  },
+  {
+    "id": "item-07",
+    "numero": 7,
+    "titulo": "Uñas Esculpidas #07",
+    "categoria": "esculpidas",
+    "categoria_label": "Uñas Esculpidas",
+    "descripcion": "Extensión esculpida profesional con acabado ultra natural y resistencia.",
+    "precio": 28000,
+    "precio_formateado": "$28.000",
+    "archivo_original": "df001.jpeg",
+    "archivo_optimizado": "assets/img/trabajo_07.jpg",
+    "dimensiones": {
+      "ancho": 720,
+      "alto": 1280
+    },
+    "aspect_ratio": 0.56,
+    "destacado": true
+  },
+  {
+    "id": "item-08",
+    "numero": 8,
+    "titulo": "Nail Art Exclusivo #08",
+    "categoria": "nailart",
+    "categoria_label": "Nail Art Exclusivo",
+    "descripcion": "Diseño artístico a mano alzada con detalles delicados y brillo superior.",
+    "precio": 25000,
+    "precio_formateado": "$25.000",
+    "archivo_original": "df002.jpeg",
+    "archivo_optimizado": "assets/img/trabajo_08.jpg",
+    "dimensiones": {
+      "ancho": 720,
+      "alto": 1280
+    },
+    "aspect_ratio": 0.56,
+    "destacado": false
+  },
+  {
+    "id": "item-09",
+    "numero": 9,
+    "titulo": "Semipermanente #09",
+    "categoria": "semipermanente",
+    "categoria_label": "Semipermanente",
+    "descripcion": "Esmaltado semipermanente de larga duración con cutículas impecables.",
+    "precio": 18000,
+    "precio_formateado": "$18.000",
+    "archivo_original": "df003.jpeg",
+    "archivo_optimizado": "assets/img/trabajo_09.jpg",
+    "dimensiones": {
+      "ancho": 720,
+      "alto": 1280
+    },
+    "aspect_ratio": 0.56,
+    "destacado": false
+  },
+  {
+    "id": "item-10",
+    "numero": 10,
+    "titulo": "Kapping Gel #10",
+    "categoria": "kapping",
+    "categoria_label": "Kapping Gel",
+    "descripcion": "Refuerzo de uña natural con Kapping Gel para máxima durabilidad y fuerza.",
+    "precio": 23000,
+    "precio_formateado": "$23.000",
+    "archivo_original": "df004.jpeg",
+    "archivo_optimizado": "assets/img/trabajo_10.jpg",
+    "dimensiones": {
+      "ancho": 720,
+      "alto": 1280
+    },
+    "aspect_ratio": 0.56,
+    "destacado": false
+  },
+  {
+    "id": "item-11",
+    "numero": 11,
+    "titulo": "Uñas Esculpidas #11",
+    "categoria": "esculpidas",
+    "categoria_label": "Uñas Esculpidas",
+    "descripcion": "Extensión esculpida profesional con acabado ultra natural y resistencia.",
+    "precio": 28000,
+    "precio_formateado": "$28.000",
+    "archivo_original": "df005.jpeg",
+    "archivo_optimizado": "assets/img/trabajo_11.jpg",
+    "dimensiones": {
+      "ancho": 720,
+      "alto": 1280
+    },
+    "aspect_ratio": 0.56,
+    "destacado": false
+  },
+  {
+    "id": "item-12",
+    "numero": 12,
+    "titulo": "Nail Art Exclusivo #12",
+    "categoria": "nailart",
+    "categoria_label": "Nail Art Exclusivo",
+    "descripcion": "Diseño artístico a mano alzada con detalles delicados y brillo superior.",
+    "precio": 25000,
+    "precio_formateado": "$25.000",
+    "archivo_original": "g.jpeg",
+    "archivo_optimizado": "assets/img/trabajo_12.jpg",
+    "dimensiones": {
+      "ancho": 900,
+      "alto": 1600
+    },
+    "aspect_ratio": 0.56,
+    "destacado": false
+  },
+  {
+    "id": "item-13",
+    "numero": 13,
+    "titulo": "Semipermanente #13",
+    "categoria": "semipermanente",
+    "categoria_label": "Semipermanente",
+    "descripcion": "Esmaltado semipermanente de larga duración con cutículas impecables.",
+    "precio": 18000,
+    "precio_formateado": "$18.000",
+    "archivo_original": "gf.jpeg",
+    "archivo_optimizado": "assets/img/trabajo_13.jpg",
+    "dimensiones": {
+      "ancho": 900,
+      "alto": 1600
+    },
+    "aspect_ratio": 0.56,
+    "destacado": true
+  },
+  {
+    "id": "item-14",
+    "numero": 14,
+    "titulo": "Kapping Gel #14",
+    "categoria": "kapping",
+    "categoria_label": "Kapping Gel",
+    "descripcion": "Refuerzo de uña natural con Kapping Gel para máxima durabilidad y fuerza.",
+    "precio": 23000,
+    "precio_formateado": "$23.000",
+    "archivo_original": "ggg.jpeg",
+    "archivo_optimizado": "assets/img/trabajo_14.jpg",
+    "dimensiones": {
+      "ancho": 720,
+      "alto": 1280
+    },
+    "aspect_ratio": 0.56,
+    "destacado": false
+  },
+  {
+    "id": "item-15",
+    "numero": 15,
+    "titulo": "Uñas Esculpidas #15",
+    "categoria": "esculpidas",
+    "categoria_label": "Uñas Esculpidas",
+    "descripcion": "Extensión esculpida profesional con acabado ultra natural y resistencia.",
+    "precio": 28000,
+    "precio_formateado": "$28.000",
+    "archivo_original": "gh.jpeg",
+    "archivo_optimizado": "assets/img/trabajo_15.jpg",
+    "dimensiones": {
+      "ancho": 780,
+      "alto": 1280
+    },
+    "aspect_ratio": 0.61,
+    "destacado": true
+  },
+  {
+    "id": "item-16",
+    "numero": 16,
+    "titulo": "Nail Art Exclusivo #16",
+    "categoria": "nailart",
+    "categoria_label": "Nail Art Exclusivo",
+    "descripcion": "Diseño artístico a mano alzada con detalles delicados y brillo superior.",
+    "precio": 25000,
+    "precio_formateado": "$25.000",
+    "archivo_original": "r001.jpeg",
+    "archivo_optimizado": "assets/img/trabajo_16.jpg",
+    "dimensiones": {
+      "ancho": 720,
+      "alto": 1280
+    },
+    "aspect_ratio": 0.56,
+    "destacado": false
+  },
+  {
+    "id": "item-17",
+    "numero": 17,
+    "titulo": "Semipermanente #17",
+    "categoria": "semipermanente",
+    "categoria_label": "Semipermanente",
+    "descripcion": "Esmaltado semipermanente de larga duración con cutículas impecables.",
+    "precio": 18000,
+    "precio_formateado": "$18.000",
+    "archivo_original": "r003.jpeg",
+    "archivo_optimizado": "assets/img/trabajo_17.jpg",
+    "dimensiones": {
+      "ancho": 720,
+      "alto": 1280
+    },
+    "aspect_ratio": 0.56,
+    "destacado": false
+  },
+  {
+    "id": "item-18",
+    "numero": 18,
+    "titulo": "Kapping Gel #18",
+    "categoria": "kapping",
+    "categoria_label": "Kapping Gel",
+    "descripcion": "Refuerzo de uña natural con Kapping Gel para máxima durabilidad y fuerza.",
+    "precio": 23000,
+    "precio_formateado": "$23.000",
+    "archivo_original": "r004.jpeg",
+    "archivo_optimizado": "assets/img/trabajo_18.jpg",
+    "dimensiones": {
+      "ancho": 720,
+      "alto": 1280
+    },
+    "aspect_ratio": 0.56,
+    "destacado": false
+  },
+  {
+    "id": "item-19",
+    "numero": 19,
+    "titulo": "Uñas Esculpidas #19",
+    "categoria": "esculpidas",
+    "categoria_label": "Uñas Esculpidas",
+    "descripcion": "Extensión esculpida profesional con acabado ultra natural y resistencia.",
+    "precio": 28000,
+    "precio_formateado": "$28.000",
+    "archivo_original": "r005.jpeg",
+    "archivo_optimizado": "assets/img/trabajo_19.jpg",
+    "dimensiones": {
+      "ancho": 720,
+      "alto": 1280
+    },
+    "aspect_ratio": 0.56,
+    "destacado": false
+  }
+]

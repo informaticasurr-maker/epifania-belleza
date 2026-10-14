@@ -1,0 +1,58 @@
+{
+  "negocio": {
+    "nombre": "Epifanía Belleza",
+    "rubro": "Servicio de Belleza y Manicura Profesional",
+    "eslogan": "Realzamos la belleza y elegancia natural de tus manos",
+    "ciudad": "Puerto Madryn",
+    "provincia": "Chubut",
+    "pais": "Argentina",
+    "whatsapp": "280 496-8223",
+    "whatsapp_completo": "+54 9 280 496-8223",
+    "whatsapp_link": "https://wa.me/5492804968223",
+    "instagram": "epifaniabelleza_",
+    "instagram_link": "https://www.instagram.com/epifaniabelleza_/",
+    "horarios": {
+      "lunes_a_viernes": "9:00 hs a 20:00 hs",
+      "sabados": "9:00 hs a 15:00 hs",
+      "domingos": "Cerrado"
+    }
+  },
+  "configuracion": {
+    "moneda": "ARS",
+    "simbolo_moneda": "$",
+    "admin_pin_default": "1234",
+    "categorias": [
+      { "id": "todas", "nombre": "Todos los Trabajos", "icono": "✨" },
+      { "id": "semipermanente", "nombre": "Semipermanente", "icono": "💅" },
+      { "id": "kapping", "nombre": "Kapping Gel", "icono": "🛡️" },
+      { "id": "esculpidas", "nombre": "Esculpidas", "icono": "💎" },
+      { "id": "nailart", "nombre": "Nail Art & Diseños", "icono": "🎨" }
+    ]
+  },
+  "historias_iniciales": [
+    {
+      "id": "story-1",
+      "titulo": "Turnos Disponibles de la Semana",
+      "descripcion": "Consultanos por cancelaciones y turnos express para este jueves y viernes en Puerto Madryn ✨",
+      "imagen": "gf.jpeg",
+      "tag": "Turnos",
+      "fecha": "Hoy"
+    },
+    {
+      "id": "story-2",
+      "titulo": "Nuevos Colores de Temporada",
+      "descripcion": "Llegaron esmaltes en tonos pasteles, nudes cálidos y brillos holográficos.",
+      "imagen": "WhatsApp Image 2026-10-01 at 20.05.32.jpeg",
+      "tag": "Novedad",
+      "fecha": "Ayer"
+    },
+    {
+      "id": "story-3",
+      "titulo": "Kapping Gel para Uñas Fuertes",
+      "descripcion": "Protegé tus uñas naturales evitando roturas con una capa de gel de alta resistencia.",
+      "imagen": "df001.jpeg",
+      "tag": "Tratamiento",
+      "fecha": "Esta semana"
+    }
+  ]
+}

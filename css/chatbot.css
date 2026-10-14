@@ -1,0 +1,468 @@
+/* ==========================================================================
+   EPIFANÍA BELLEZA - CHATBOT INTERACTIVO (ASISTENTE VIRTUAL)
+   Diseño: Glassmorphism Rose Gold & Nude, Mobile-First
+   ========================================================================== */
+
+/* Botón Flotante Lanzador del Chatbot (Lado Derecho) */
+.floating-chatbot-btn {
+  position: fixed;
+  bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  right: calc(1.25rem + env(safe-area-inset-right, 0px));
+  left: auto;
+  z-index: 90;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 122, 107, 0.35);
+  padding: 6px 14px 6px 6px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 20px rgba(201, 122, 107, 0.32);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.floating-chatbot-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  border-color: var(--color-primary);
+  box-shadow: 0 6px 24px rgba(201, 122, 107, 0.38);
+}
+
+.floating-chatbot-btn:active {
+  transform: scale(0.97);
+}
+
+.chatbot-avatar-ring {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  padding: 2px;
+  background: linear-gradient(135deg, #f09433, #dc2743, #bc1888);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatbot-avatar-ring img {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
+  border: 2px solid #FFFFFF;
+  object-fit: cover;
+}
+
+.chatbot-online-dot {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+  background: #25D366;
+  border: 2px solid #FFFFFF;
+}
+
+.chatbot-btn-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.chatbot-btn-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  line-height: 1.1;
+}
+
+.chatbot-btn-sub {
+  font-size: 0.68rem;
+  color: var(--color-primary-dark);
+  font-weight: 500;
+}
+
+/* Ventana Principal del Chatbot (Lado Derecho) */
+.chatbot-window {
+  position: fixed;
+  bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
+  right: calc(1.25rem + env(safe-area-inset-right, 0px));
+  left: auto;
+  width: calc(100vw - 2.5rem);
+  max-width: 390px;
+  height: 560px;
+  max-height: calc(85vh - 5rem);
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 16px 45px rgba(44, 36, 34, 0.22);
+  display: flex;
+  flex-direction: column;
+  z-index: 95;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(18px) scale(0.96);
+  transition: all var(--transition-normal);
+}
+
+.chatbot-window.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+/* Cabecera del Chat */
+.chat-header {
+  background: linear-gradient(135deg, #FAF4F2 0%, #F5ECE8 100%);
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-header-info {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.chat-header-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chat-header-name {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  line-height: 1.1;
+}
+
+.chat-header-status {
+  font-size: 0.72rem;
+  color: #16A34A;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.chat-header-status::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-full);
+  background: #22C55E;
+  display: inline-block;
+}
+
+.chat-close-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.chat-close-btn:hover {
+  background: var(--color-primary-light);
+  color: #FFFFFF;
+}
+
+/* Área de Mensajes del Chat */
+.chat-messages-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  background: #FAF8F6;
+  scroll-behavior: smooth;
+}
+
+/* Burbujas de Mensajes */
+.chat-message {
+  display: flex;
+  gap: 8px;
+  max-width: 88%;
+  animation: messageFade 0.3s ease forwards;
+}
+
+@keyframes messageFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-message.bot {
+  align-self: flex-start;
+}
+
+.chat-message.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.chat-bubble-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.chat-bubble {
+  padding: 0.75rem 0.95rem;
+  border-radius: 16px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.chat-message.bot .chat-bubble {
+  background: #FFFFFF;
+  color: var(--color-text-main);
+  border: 1px solid var(--color-border);
+  border-top-left-radius: 4px;
+}
+
+.chat-message.user .chat-bubble {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border-top-right-radius: 4px;
+}
+
+/* Indicador de escritura "Escribiendo..." */
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0.6rem 0.85rem;
+  background: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  width: fit-content;
+}
+
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-light);
+  animation: typingBounce 1.2s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingBounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-4px); }
+}
+
+/* Botones de Opciones Rápidas */
+.chat-options-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-top: 0.35rem;
+  width: 100%;
+}
+
+.chat-option-btn {
+  background: #FFFFFF;
+  border: 1px solid rgba(201, 122, 107, 0.4);
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius-sm);
+  color: var(--color-primary-dark);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.chat-option-btn:hover {
+  background: #FFF5F2;
+  border-color: var(--color-primary);
+  transform: translateX(2px);
+}
+
+.chat-option-btn:active {
+  transform: scale(0.98);
+}
+
+/* Tarjetas de Precios y Disponibilidad dentro del Chat */
+.chat-info-card {
+  background: #FFF9F7;
+  border: 1px solid #EFE4DF;
+  border-radius: var(--radius-sm);
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  font-size: 0.82rem;
+}
+
+.chat-price-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.4rem 0;
+  border-bottom: 1px dashed #E5D5D0;
+}
+
+.chat-price-item:last-child {
+  border-bottom: none;
+}
+
+.chat-price-time {
+  font-size: 0.74rem;
+  color: var(--color-text-muted);
+  font-weight: normal;
+}
+
+/* Formulario de Reserva Embebido en Chat (Opción 3) */
+.chat-booking-form {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.chat-form-title {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  border-bottom: 1px solid var(--color-surface-alt);
+  padding-bottom: 0.4rem;
+}
+
+.chat-input, .chat-select {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: #FAF8F6;
+  font-size: 0.84rem;
+  font-family: inherit;
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.chat-input:focus, .chat-select:focus {
+  border-color: var(--color-primary);
+  background: #FFFFFF;
+}
+
+.btn-confirm-chat-booking {
+  width: 100%;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  padding: 0.65rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.88rem;
+  margin-top: 0.35rem;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(201, 122, 107, 0.3);
+  transition: all var(--transition-fast);
+}
+
+.btn-confirm-chat-booking:hover {
+  background: var(--color-primary-dark);
+}
+
+/* Tarjeta de Confirmación de Cita Agendada */
+.booking-confirmed-card {
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.booking-confirmed-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #15803D;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.booking-duration-badge {
+  background: #DCFCE7;
+  color: #166534;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.btn-wa-confirm-send {
+  background: var(--color-whatsapp);
+  color: #FFFFFF;
+  padding: 0.65rem 0.95rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  text-decoration: none;
+  margin-top: 0.25rem;
+}
+
+.btn-wa-confirm-send:hover {
+  background: var(--color-whatsapp-hover);
+}
+
+/* Adaptabilidad Mobile-First para el Chatbot en la Derecha */
+@media (max-width: 480px) {
+  .floating-chatbot-btn {
+    right: calc(1rem + env(safe-area-inset-right, 0px));
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    left: auto;
+  }
+
+  .chatbot-window {
+    right: 0.75rem;
+    left: 0.75rem;
+    width: auto;
+    bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px));
+    max-height: calc(88vh - 4.75rem);
+  }
+}
+
